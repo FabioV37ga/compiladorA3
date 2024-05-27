@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compilador 0.0.1</title>
+    <link rel="stylesheet" href="corpo.css">
+</head>
+
+<body>
+    <section class="conteudo">
+        <section class="input">
+            <span class="label">input</span>
+            <textarea class="textBox-input">
+    programa
+        inteiro x, y;
+        escreva("Hello world");
+        leia(x);
+        if (x > 0) {
+            y := x * 2;
+            escreva("O dobro de ", x, " é ", y);
+        } else {
+        escreva("O valor de x é negativo");
+        }
+    fimprog
+            </textarea>
+            <button class="compilar" onclick="getCodigo()">Executar análises</button>
+        </section>
+        <span id="divisor">→</span>
+        <section class="output">
+            <span class="label">output</span>
+            <textarea class="textBox-output"></textarea>
+        </section>
+    </section>
+    <script src="analises.js"></script>
+</body>
+
+</html>
