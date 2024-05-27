@@ -2,6 +2,6 @@
 Projeto final de Teoria da computação &amp; compiladores.
 
 Integrantes:
-Fábio Balestrin Veiga - 822129856
-Gustavo Enzo - 822226174
-Lucas Ota - 822166298
+Fábio Balestrin Veiga - 822129856 <br/>
+Gustavo Enzo - 822226174 <br/> 
+Lucas Ota - 822166298 <br/>
