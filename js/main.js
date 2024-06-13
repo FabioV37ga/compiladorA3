@@ -1,6 +1,4 @@
 class main {
-
-
     static codigo;
     static tokens;
     static semantic;

@@ -47,6 +47,8 @@ class Parser {
     declaracao() {
         const tipo = this.tipo();
         const varList = this.varList();
+        console.log(this.currentToken())
+        // if (this.currentToken())
         this.consume('DELIMITADOR', ';');
         for (const variable of varList) {
             main.semantic.declareVariable(variable[0], tipo);
@@ -83,15 +85,26 @@ class Parser {
             return this.bloco();
         } else if (this.currentToken()[1] === 'ID') {
             return this.atribuicao();
-        } else if(this.currentToken()[0] === 'para'){
+        } else if (this.currentToken()[0] === 'para') {
             return this.lacoPara()
-        } else if(this.currentToken()[0] === 'enquanto'){
-            return this.lacoEnquanto()
+            // console.log("teste")
+        } else if (this.currentToken()[0] === 'enquanto') {
+            // return this.lacoEnquanto()
         }
         else {
             document.querySelector(".textBox-output").value = `Comando inválido: ${this.currentToken()}`
             throw new SyntaxError(`Comando inválido: ${this.currentToken()}`);
         }
+    }
+
+    lacoPara() {
+        this.consume('PALAVRA_CHAVE', 'para')
+        this.consume('DELIMITADOR', '(');
+        // const argumentos = [this.consume("NUMERO"), this.consume("NUMERO"), this.consume("NUMERO")]
+        const argumentos = this.argumentoList(3)
+        this.consume('DELIMITADOR', ')');
+        this.consume('DELIMITADOR', ';');
+        return ['laco para ', argumentos]
     }
 
     escreva() {
@@ -184,11 +197,19 @@ class Parser {
         }
     }
 
-    argumentoList() {
+    argumentoList(length) {
         const argumentos = [this.argumento()];
+        var index = 1;
         while (this.currentToken() && this.currentToken()[0] === ',') {
             this.consume('DELIMITADOR', ',');
-            argumentos.push(this.argumento());
+            if (!length) {
+                argumentos.push(this.argumento());
+            } else {
+                if (index < length) {
+                    argumentos.push(this.argumento());
+                    index++
+                } else { break }
+            }
         }
         return argumentos;
     }
