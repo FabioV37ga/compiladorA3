@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compilador 0.0.1</title>
     <link rel="stylesheet" href="corpo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
         }
     fimprog
             </textarea>
-            <button class="compilar" onclick="getCodigo()">Executar análises</button>
+            <button class="compilar" onclick="main.getCodigo()">Executar análises</button>
         </section>
         <span id="divisor">→</span>
         <section class="output">
@@ -33,7 +34,12 @@
             <textarea class="textBox-output"></textarea>
         </section>
     </section>
-    <script src="analises.js"></script>
+    <script src="js/linguagem.js"></script>
+    <script src="js/parser.js"></script>
+    <script src="js/semantic.js"></script>
+    <!-- <script src="js/analises.js"></script> -->
+    <script src="js/lexer.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
