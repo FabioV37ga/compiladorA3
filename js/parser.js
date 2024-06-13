@@ -1,4 +1,5 @@
 class Parser {
+    static parsedString;
     constructor(tokens) {
         this.tokens = tokens;
         this.pos = 0;
@@ -29,6 +30,8 @@ class Parser {
         this.consume('PALAVRA_CHAVE', 'programa');
         const corpo = this.corpo();
         this.consume('PALAVRA_CHAVE', 'fimprog');
+        // console.log(JSON.stringify(corpo))
+        Parser.parsedString = JSON.stringify(corpo);
         return ['programa', corpo];
     }
 
