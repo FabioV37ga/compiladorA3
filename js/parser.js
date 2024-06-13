@@ -47,7 +47,7 @@ class Parser {
     declaracao() {
         const tipo = this.tipo();
         const varList = this.varList();
-        console.log(this.currentToken())
+        // console.log(this.currentToken())
         // if (this.currentToken())
         this.consume('DELIMITADOR', ';');
         for (const variable of varList) {
@@ -103,8 +103,8 @@ class Parser {
         // const argumentos = [this.consume("NUMERO"), this.consume("NUMERO"), this.consume("NUMERO")]
         const argumentos = this.argumentoList(3)
         this.consume('DELIMITADOR', ')');
-        this.consume('DELIMITADOR', ';');
-        return ['laco para ', argumentos]
+        const bloco = this.bloco()
+        return ['loopPara', argumentos, bloco]
     }
 
     escreva() {
