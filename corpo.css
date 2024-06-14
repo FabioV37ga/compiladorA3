@@ -15,16 +15,45 @@ body {
     width: 1400px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.input, .output {
+.input {
     width: 600px;
     text-align: center;
 }
 
-.label{
-    margin-bottom: 10px;
+.label {
+    width: 100%;
 }
+
+.output{
+    height: 49% !important;
+    text-align: center;
+}
+
+span.label.intermediario {
+    margin-top: 11px;
+}
+
+.output-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 340px;
+}
+
+.outputarea{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.output textarea{
+    height:100%
+}
+
 
 #divisor{
     margin-top: 300px
@@ -32,12 +61,11 @@ body {
 
 textarea {
     width: 600px;
-    height: 600px;
+    height: 680px;
     overflow: scroll;
     border: 3px solid #2b818c;
     border-radius: 6px;
     outline: none;
-    margin-top: 15px;
 }
 
 .compilar{

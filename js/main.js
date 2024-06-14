@@ -14,167 +14,11 @@ class main {
         main.parser = new Parser(main.tokens)
         main.finalString = JSON.stringify(main.parser.parse(), null, 2)
 
-        document.querySelector(".textBox-output").value = this.finalString
-
-        // var a = Intermediario.generateIntermediateCode(main.parser)
-        // console.log(a)
-        // console.log(main.parser.tokens)
-        // console.log(traduzParaDelta(main.tokens))
-        // var a = Intermediario.gerarCodigo(main.parser)
-        // console.log(a)
+        document.querySelector(".output-parser").value = this.finalString
         console.log(translateToIntermediateCode())
+
+        document.querySelector(".output-intermediate").value = translateToIntermediateCode()
         function translateToIntermediateCode() {
-
-            // console.log(JSON.stringify(main.parser.parse()))
-            // let pseudoCode = [
-            //     "programa",
-            //     [
-            //         [
-            //             "declaracao",
-            //             "inteiro",
-            //             [
-            //                 [
-            //                     "x",
-            //                     "ID"
-            //                 ],
-            //                 [
-            //                     "y",
-            //                     "ID"
-            //                 ]
-            //             ]
-            //         ],
-            //         [
-            //             "escreva",
-            //             [
-            //                 [
-            //                     "Hello world",
-            //                     "TEXTO"
-            //                 ]
-            //             ]
-            //         ],
-            //         [
-            //             "leia",
-            //             [
-            //                 "x",
-            //                 "ID"
-            //             ]
-            //         ],
-            //         [
-            //             "if_else",
-            //             [
-            //                 "binop",
-            //                 [
-            //                     ">",
-            //                     "OPERADOR"
-            //                 ],
-            //                 [
-            //                     "x",
-            //                     "ID"
-            //                 ],
-            //                 [
-            //                     "0",
-            //                     "NUMERO"
-            //                 ]
-            //             ],
-            //             [
-            //                 "bloco",
-            //                 [
-            //                     [
-            //                         "atribuicao",
-            //                         [
-            //                             "y",
-            //                             "ID"
-            //                         ],
-            //                         ":=",
-            //                         [
-            //                             "binop",
-            //                             [
-            //                                 "*",
-            //                                 "OPERADOR"
-            //                             ],
-            //                             [
-            //                                 "x",
-            //                                 "ID"
-            //                             ],
-            //                             [
-            //                                 "2",
-            //                                 "NUMERO"
-            //                             ]
-            //                         ]
-            //                     ],
-            //                     [
-            //                         "escreva",
-            //                         [
-            //                             [
-            //                                 "O dobro de ",
-            //                                 "TEXTO"
-            //                             ],
-            //                             [
-            //                                 "x",
-            //                                 "ID"
-            //                             ],
-            //                             [
-            //                                 " é ",
-            //                                 "TEXTO"
-            //                             ],
-            //                             [
-            //                                 "y",
-            //                                 "ID"
-            //                             ]
-            //                         ]
-            //                     ]
-            //                 ]
-            //             ],
-            //             [
-            //                 "bloco",
-            //                 [
-            //                     [
-            //                         "escreva",
-            //                         [
-            //                             [
-            //                                 "O valor de x é negativo",
-            //                                 "TEXTO"
-            //                             ]
-            //                         ]
-            //                     ]
-            //                 ]
-            //             ]
-            //         ],
-            //         [
-            //             "loopPara",
-            //             [
-            //                 [
-            //                     "1",
-            //                     "NUMERO"
-            //                 ],
-            //                 [
-            //                     "1",
-            //                     "NUMERO"
-            //                 ],
-            //                 [
-            //                     "10",
-            //                     "NUMERO"
-            //                 ]
-            //             ],
-            //             [
-            //                 "bloco",
-            //                 [
-            //                     [
-            //                         "escreva",
-            //                         [
-            //                             [
-            //                                 "bonk!",
-            //                                 "TEXTO"
-            //                             ]
-            //                         ]
-            //                     ]
-            //                 ]
-            //             ]
-            //         ]
-            //     ]
-            // ];
-
-            // console.log(Parser.parsedString)
             let pseudoCode = JSON.parse(main.finalString)
 
             let intermediateCode = [];
@@ -247,8 +91,5 @@ class main {
 
             return intermediateCode.join("\n");
         }
-
-
-        // console.log(intermediateCode)
     }
 }

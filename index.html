@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compilador 0.0.1</title>
+    <title>Compilador 0.1.0</title>
     <link rel="stylesheet" href="corpo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
@@ -13,7 +13,7 @@
     <section class="conteudo">
         <section class="input">
             <span class="label">input</span>
-            <textarea class="textBox-input">
+            <textarea spellcheck="false" class="textBox-input">
 programa
     inteiro x, y;
     escreva("Hello world");
@@ -32,9 +32,19 @@ fimprog
             <button class="compilar" onclick="main.getCodigo()">Executar análises</button>
         </section>
         <span id="divisor">→</span>
-        <section class="output">
-            <span class="label">output</span>
-            <textarea class="textBox-output"></textarea>
+        <section class="outputarea">
+            <section class="output">
+                <div class="output-content">
+                    <span class="label">parser</span>
+                    <textarea spellcheck="false" class="textBox-output output-parser"></textarea>
+                </div>
+            </section>
+            <section class="output">
+                <div class="output-content">
+                    <span class="label">código intermediário</span>
+                    <textarea spellcheck="false" class="textBox-output output-intermediate"></textarea>
+                </div>
+            </section>
         </section>
     </section>
     <script src="js/intermediate.js"></script>
