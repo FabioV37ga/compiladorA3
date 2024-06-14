@@ -87,7 +87,7 @@ class Intermediate {
                             expression = `${node[2]} ${node[3][2][0]} ${node[3][1][0]} ${node[3][3][0]}`;
                             console.log("cuzinho")
                         }else if(node[2][0] == 'binop'){
-                            expression = `${node[2][2]} ${node[2][1]} ${node[2][3]}`;
+                            expression = `:= ${node[2][2][0]} ${node[2][1][0]} ${node[2][3][0]}`;
                             console.log("outrumacaca")
 
                         }else if(node[0] == 'atribuicao'){
