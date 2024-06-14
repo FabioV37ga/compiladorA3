@@ -23,6 +23,11 @@
                         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
                         código de entrada
                     </div>
+                    <div class="copy">
+                        <a href="#" class="btn-copy">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
                 <textarea spellcheck="false" class="textBox-input" id="txt">
 programa
@@ -51,8 +56,13 @@ fimprog</textarea>
                             <i class="fa fa-building-o" aria-hidden="true"></i>
                             Parser
                         </div>
+                        <div class="copy">
+                            <a href="#" class="btn-copy">
+                                <i class="fa fa-clone" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
-                    <textarea spellcheck="false" class="textBox-output output-parser"></textarea>
+                    <textarea readonly spellcheck="false" class="textBox-output output-parser"></textarea>
                 </section>
                 <section class="output_b">
                     <div class="secao-header">
@@ -60,8 +70,13 @@ fimprog</textarea>
                             <i class="fa fa-desktop" aria-hidden="true"></i>
                             Linguagem intermediária
                         </div>
+                        <div class="copy">
+                            <a href="#" class="btn-copy">
+                                <i class="fa fa-clone" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
-                    <textarea spellcheck="false" class="textBox-output output-intermediate"></textarea>
+                    <textarea readonly spellcheck="false" class="textBox-output output-intermediate"></textarea>
                 </section>
             </section>
         </section>
@@ -71,7 +86,7 @@ fimprog</textarea>
     <script src="js/bower_components/taboverride/build/output/taboverride.js"></script>
     <script src="js/frontend/editor.js"></script>
     ../
-    <!-- Scripts ./do compilador -->
+    <!-- Scripts do compilador -->
     <script src="js/compilador/intermediate.js"></script>
     <script src="js/compilador/linguagem.js"></script>
     <script src="js/compilador/parser.js"></script>
@@ -81,3 +96,16 @@ fimprog</textarea>
 </body>
 
 </html>
+
+<!-- 
+TODO:
+
+1. O compilador precisa aceitar mais um tipo de variavel (pensei em string)
+1.1 para adicionar essa variavel vai ser preciso tratar ela na lógica (parser, intermediate)
+
+2. Por fim, o código intermediário precisa ser traduzido para uma linguagem à escolha (pensei js)
+2.1 seria interessante rodar o código no próprio ambiente web, mas ainda não sei como faze-lo
+    - nesse sentido, seria mais facil fazer em python.... ou não?
+
+
+-->

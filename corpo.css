@@ -123,3 +123,19 @@ textarea {
     align-items: center;
     flex-direction: column;
 }
+
+.copy{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    height: 100%;
+    width: 50px;
+    
+}
+.copy a{
+    padding: 10px;
+    border-radius: 100%;
+    text-decoration: none;
+    color: rgb(238, 245, 248)
+}
