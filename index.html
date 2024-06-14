@@ -4,16 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compilador 0.1.4</title>
+    <title>Compilador 0.3.0</title>
     <link rel="stylesheet" href="corpo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <section class="conteudo">
-        <section class="input">
-            <span class="label">input</span>
-            <textarea spellcheck="false" class="textBox-input" id="txt">
+
+    <section class="secao-principal">
+        <section class="conteudo">
+            <section class="secao-topo">
+                <a href="#" class="btn-compilar"><i class="fa fa-play" aria-hidden="true"></i> Compilar</a>
+            </section>
+            <section class="secao-esquerda">
+                <div class="secao-header">
+                    <div class="tab">
+                        <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                        código de entrada
+                    </div>
+                </div>
+                <textarea spellcheck="false" class="textBox-input" id="txt">
 programa
 &#9;inteiro x, y, b;
 &#9;escreva("Hello world");
@@ -25,36 +36,42 @@ programa
 &#9;&#9;escreva("O valor de x é negativo");
 &#9;}
 &#9;para(1,1,10){
-    &#9;&#9;escreva("bonk!");
+&#9;&#9;escreva("bonk!");
 &#9;}
 &#9;enquanto(x < 10){
 &#9;&#9;escreva("bouf!");
 &#9;&#9;b := 3;
 &#9;}"
 fimprog</textarea>
-            <button class="compilar" onclick="main.getCodigo()">Executar análises</button>
-        </section>
-        <span id="divisor">→</span>
-        <section class="outputarea">
-            <section class="output">
-                <div class="output-content">
-                    <span class="label">parser</span>
-                    <textarea spellcheck="false" class="textBox-output output-parser"></textarea>
-                </div>
             </section>
-            <section class="output">
-                <div class="output-content">
-                    <span class="label">código intermediário</span>
+            <section class="secao-direita">
+                <section class="output_a">
+                    <div class="secao-header">
+                        <div class="tab">
+                            <i class="fa fa-building-o" aria-hidden="true"></i>
+                            Parser
+                        </div>
+                    </div>
+                    <textarea spellcheck="false" class="textBox-output output-parser"></textarea>
+                </section>
+                <section class="output_b">
+                    <div class="secao-header">
+                        <div class="tab">
+                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                            Linguagem intermediária
+                        </div>
+                    </div>
                     <textarea spellcheck="false" class="textBox-output output-intermediate"></textarea>
-                </div>
+                </section>
             </section>
         </section>
     </section>
+
     <!-- Scripts front-end -->
     <script src="js/bower_components/taboverride/build/output/taboverride.js"></script>
     <script src="js/frontend/editor.js"></script>
-
-    <!-- Scripts do compilador -->
+    ../
+    <!-- Scripts ./do compilador -->
     <script src="js/compilador/intermediate.js"></script>
     <script src="js/compilador/linguagem.js"></script>
     <script src="js/compilador/parser.js"></script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compilador 0.2.0</title>
+    <link rel="stylesheet" href="corpo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <section class="conteudo">
+        <section class="input">
+            <span class="label">input</span>
+            <textarea spellcheck="false" class="textBox-input" id="txt">
+programa
+&#9;inteiro x, y, b;
+&#9;escreva("Hello world");
+&#9;leia(x);
+&#9;if (x > 0) {
+&#9;&#9;y := x * 2;
+&#9;&#9;escreva("O dobro de ", x, " é ", y);
+&#9;} else {
+&#9;&#9;escreva("O valor de x é negativo");
+&#9;}
+&#9;para(1,1,10){
+    &#9;&#9;escreva("bonk!");
+&#9;}
+&#9;enquanto(x < 10){
+&#9;&#9;escreva("bouf!");
+&#9;&#9;b := 3;
+&#9;}"
+fimprog</textarea>
+            <button class="compilar" onclick="main.getCodigo()">Executar análises</button>
+        </section>
+        <span id="divisor">→</span>
+        <section class="outputarea">
+            <section class="output">
+                <div class="output-content">
+                    <span class="label">parser</span>
+                    <textarea spellcheck="false" class="textBox-output output-parser"></textarea>
+                </div>
+            </section>
+            <section class="output">
+                <div class="output-content">
+                    <span class="label">código intermediário</span>
+                    <textarea spellcheck="false" class="textBox-output output-intermediate"></textarea>
+                </div>
+            </section>
+        </section>
+    </section>
+    <!-- Scripts front-end -->
+    <script src="js/bower_components/taboverride/build/output/taboverride.js"></script>
+    <script src="js/frontend/editor.js"></script>
+
+    <!-- Scripts do compilador -->
+    <script src="js/compilador/intermediate.js"></script>
+    <script src="js/compilador/linguagem.js"></script>
+    <script src="js/compilador/parser.js"></script>
+    <script src="js/compilador/semantic.js"></script>
+    <script src="js/compilador/lexer.js"></script>
+    <script src="js/compilador/main.js"></script>
+</body>
+
+</html>
