@@ -93,6 +93,7 @@ class Parser {
             // console.log("teste")
         } else if (this.currentToken()[0] === 'enquanto') {
             // return this.lacoEnquanto()
+            return this.lacoEnquanto()
         }
         else {
             document.querySelector(".textBox-output").value = `Comando inválido: ${this.currentToken()}`
@@ -108,6 +109,13 @@ class Parser {
         this.consume('DELIMITADOR', ')');
         const bloco = this.bloco()
         return ['loopPara', argumentos, bloco]
+    }
+    
+    lacoEnquanto() {
+        this.consume('PALAVRA_CHAVE', 'enquanto')
+        const condicao = this.expr();
+        const bloco = this.bloco();
+        return ['loopEnquanto', condicao, bloco];
     }
 
     escreva() {
@@ -221,7 +229,8 @@ class Parser {
         const token = this.currentToken();
         if (['TEXTO', 'ID', 'NUMERO'].includes(token[1])) {
             return this.consume();
-        } else {
+        }
+        else {
             document.querySelector(".textBox-output").value = `Argumento inválido: ${token}`
             throw new SyntaxError(`Argumento inválido: ${token}`);
         }

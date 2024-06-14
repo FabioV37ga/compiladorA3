@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compilador 0.1.0</title>
+    <title>Compilador 0.1.3</title>
     <link rel="stylesheet" href="corpo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
@@ -15,19 +15,20 @@
             <span class="label">input</span>
             <textarea spellcheck="false" class="textBox-input">
 programa
-    inteiro x, y;
-    escreva("Hello world");
-    leia(x);
-    if (x > 0) {
-        y := x * 2;
-        escreva("O dobro de ", x, " é ", y);
-    } else {
+inteiro x, y;
+escreva("Hello world");
+leia(x);
+if (x > 0) {
+    y := x * 2;
+    escreva("O dobro de ", x, " é ", y);
+} else {
     escreva("O valor de x é negativo");
-    }para(1,1,10){
-        escreva("bonk!");
-    }
-fimprog
-                    
+}para(1,1,10){
+    escreva("bonk!");
+}enquanto(x < 10){
+    escreva("bouf!");
+}
+fimprog                                                                        
             </textarea>
             <button class="compilar" onclick="main.getCodigo()">Executar análises</button>
         </section>

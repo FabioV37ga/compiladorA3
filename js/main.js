@@ -56,8 +56,8 @@ class main {
                         intermediateCode.push(`LEIA ${varNameRead}`);
                         break;
 
-                    case 'if_else':
-                        let condition = `${node[1][2][0]} ${node[1][0][0]} ${node[1][3][0]}`;
+                    case 'if_else':                       
+                        let condition = `${node[1][2][0]} ${node[1][1][0]} ${node[1][3][0]}`;
                         intermediateCode.push(`IF ${condition} THEN`);
                         node[2][1].forEach(stmt => traverse(stmt));
                         intermediateCode.push(`ELSE`);
@@ -66,6 +66,7 @@ class main {
                         break;
 
                     case 'loopPara':
+                        
                         let start = node[1][0][0];
                         let step = node[1][1][0];
                         let end = node[1][2][0];
@@ -74,9 +75,18 @@ class main {
                         intermediateCode.push(`ENDLOOP`);
                         break;
 
+                    case 'loopEnquanto':
+                        console.log(node)
+                        let loopCondition = `${node[1][2][0]} ${node[1][1][0]} ${node[1][3][0]}`;
+                        intermediateCode.push(`WHILE ${loopCondition}`);
+                        node[2][1].forEach(stmt => traverse(stmt));
+                        intermediateCode.push(`ENDWHILE`);
+                        break;
+
                     case 'atribuicao':
+                        
                         let varNameAssign = node[1][0];
-                        let expression = `${node[3][2][0]} ${node[3][0][0]} ${node[3][3][0]}`;
+                        let expression = `${node[3][2][0]} ${node[3][1][0]} ${node[3][3][0]}`;
                         intermediateCode.push(`${varNameAssign} := ${expression}`);
                         break;
 
@@ -85,11 +95,13 @@ class main {
                 }
             }
 
+            
             traverse(pseudoCode);
 
             intermediateCode.push("FIM_PROGRAMA");
 
             return intermediateCode.join("\n");
         }
+        
     }
 }
