@@ -2,7 +2,7 @@ class Intermediate {
     static gerarCodIntermediario() {
         // Função interna: traduz a representação do parser para código intermediário
         function translateToIntermediateCode() {
-            let pseudoCode = JSON.parse(main.finalString)
+            let pseudoCode = JSON.parse(main.parsedString)
 
             let intermediateCode = [];
 
@@ -19,7 +19,7 @@ class Intermediate {
                         break;
 
                     case 'declaracao':
-                        
+
                         let varType = node[1];
                         // Para cada declaração de variável, gera a instrução de declaração no código intermediário
                         node[2].forEach(varDecl => {
@@ -83,17 +83,23 @@ class Intermediate {
                         let varNameAssign = node[1][0];
                         console.log(node)
                         var expression;
-                        if (node[0] && node[0] == 'binop'){
+
+                        if (node[0] && node[0] == 'binop') {
                             expression = `${node[2]} ${node[3][2][0]} ${node[3][1][0]} ${node[3][3][0]}`;
                             console.log("cuzinho")
-                        }else if(node[2][0] == 'binop'){
+                        } else if (node[2][0] == 'binop') {
                             expression = `:= ${node[2][2][0]} ${node[2][1][0]} ${node[2][3][0]}`;
                             console.log("outrumacaca")
 
-                        }else if(node[0] == 'atribuicao'){
+                        } else if (node[0] == 'atribuicao') {
+                            if (node[2][1] == 'TEXTO') {
+                                expression = `:= "${node[2][0]}"`
+                            }else{
+                                expression = `:= ${node[2][0]}`
+                            }
                             console.log("outrum2")
-                            expression = `:= ${node[2][0]}`
-                        }else{
+                        } else {
+                            console.log("avestrue pelasda")
                             expression = `${node[2]} ${node[3][0]}`;
                         }
                         intermediateCode.push(`${varNameAssign} ${expression}`);
