@@ -1,6 +1,6 @@
 class Lexer {
 
-    static expressao = (/\s*(\b(?:programa|fimprog|inteiro|decimal|leia|escreva|if|else|para|enquanto)\b|[a-zA-Z_á-úÁ-Ú][a-zA-Z0-9_á-úÁ-Ú]*|\d+|\+|\-|\*|\/|<|>|<=|>=|!=|==|:=|=|\(|\)|\{|\}|,|;|"([^"\\]*(?:\\.[^"\\]*)*)")\s*/);
+    static expressao = (/\s*(\b(?:programa|fimprog|inteiro|decimal|linha|leia|escreva|if|else|para|enquanto)\b|[a-zA-Z_á-úÁ-Ú][a-zA-Z0-9_á-úÁ-Ú]*|\d+|\+|\-|\*|\/|<|>|<=|>=|!=|==|:=|=|\(|\)|\{|\}|,|;|"([^"\\]*(?:\\.[^"\\]*)*)")\s*/);
 
     static getTokens() {
         const tokens = [];

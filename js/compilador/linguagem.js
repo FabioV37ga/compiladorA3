@@ -8,7 +8,7 @@ class Linguagem {
         DELIMITADOR: 'DELIMITADOR',
         TEXTO: 'TEXTO'
     };
-    static PALAVRAS_CHAVE = ['programa', 'fimprog', 'inteiro', 'decimal', 'leia', 'escreva', 'if', 'else', 'para', 'enquanto'];
+    static PALAVRAS_CHAVE = ['programa', 'fimprog', 'inteiro', 'decimal', 'linha', 'leia', 'escreva', 'if', 'else', 'para', 'enquanto'];
     static OPERADORES = ['+', '-', '*', '/', '<', '>', '<=', '>=', '!=', '==', ':=', '='];
     static DELIMITADORES = ['(', ')', '{', '}', ',', ';'];
 }

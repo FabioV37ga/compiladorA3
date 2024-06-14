@@ -47,7 +47,7 @@ class Parser {
     corpo() {
         const statements = [];
         while (this.currentToken() && this.currentToken()[0] !== 'fimprog') {
-            if (this.currentToken()[0] === 'inteiro' || this.currentToken()[0] === 'decimal') {
+            if (this.currentToken()[0] === 'inteiro' || this.currentToken()[0] === 'decimal' || this.currentToken()[0] === 'linha') {
                 statements.push(this.declaracao());  // Se for uma declaração, adiciona à lista de declarações
             } else {
                 statements.push(this.comando());  // Caso contrário, é um comando e adiciona à lista de comandos
@@ -63,14 +63,15 @@ class Parser {
         this.consume('DELIMITADOR', ';');  // Consome o delimitador ';' no final da declaração
         for (const variable of varList) {
             main.semantic.declareVariable(variable[0], tipo);  // Registra a variável no contexto semântico
+            // console.log(main.semantic.checkVariable(variable[0]))
         }
         return ['declaracao', tipo, varList];  // Retorna a estrutura da declaração
-    } 
+    }
 
     // Regra para o tipo de variável
     tipo() {
         const token = this.consume('PALAVRA_CHAVE');  // Consome uma palavra-chave que define o tipo
-        if (!['inteiro', 'decimal'].includes(token[0])) {  // Verifica se o tipo é válido
+        if (!['inteiro', 'decimal', 'linha'].includes(token[0])) {  // Verifica se o tipo é válido
             document.querySelector(".textBox-output").value = `Tipo inválido: ${token[0]}`
             throw new SyntaxError(`Tipo inválido: ${token[0]}`);
         }
@@ -191,11 +192,15 @@ class Parser {
                 leftType = main.semantic.checkVariable(left[0]);  // Verifica o tipo da variável à esquerda
             } else if (left[1] === 'NUMERO') {
                 leftType = 'inteiro';  // Se for número, define como tipo 'inteiro'
+            } else if (left[1] == 'TEXTO') {
+                leftType = 'linha'
             }
             if (right[1] === 'ID') {
                 rightType = main.semantic.checkVariable(right[0]);  // Verifica o tipo da variável à direita
             } else if (right[1] === 'NUMERO') {
                 rightType = 'inteiro';  // Se for número, define como tipo 'inteiro'
+            } else if (right[1] === 'TEXTO') {
+                rightType = 'linha'
             }
             if (leftType !== rightType) {
                 document.querySelector(".textBox-output").value = `Operação inválida entre tipos '${leftType}' e '${rightType}'`
@@ -203,16 +208,20 @@ class Parser {
             }
             left = ['binop', operador, left, right];  // Cria um nó para operação binária na árvore sintática
         }
+        // console.log(left)
         return left;  // Retorna a expressão analisada
     }
 
     // Regra para um termo na expressão matemática ou lógica
     termo() {
         const token = this.currentToken();
+        console.log(token)
         if (token[1] === 'ID') {
             return this.consume('ID');  // Se for um identificador, consome e retorna
         } else if (token[1] === 'NUMERO') {
             return this.consume('NUMERO');  // Se for um número, consome e retorna
+        } else if (token[1] === 'TEXTO') {
+            return this.consume('TEXTO')
         } else if (token[0] === '(') {
             this.consume('DELIMITADOR', '(');  // Se for '(', consome
             const expr = this.expr();  // Obtém a expressão dentro dos parênteses
@@ -261,8 +270,34 @@ class Parser {
         const idToken = this.consume('ID');  // Obtém o token do identificador
         main.semantic.checkVariable(idToken[0]);  // Verifica se a variável está declarada
         this.consume('OPERADOR', ':=');  // Consome o operador de atribuição ':='
-        const expr = this.expr();  // Obtém a expressão à direita da atribuição
+
+        const expr = this.expr();  // Obtém a expressão atribuída
+
+        // Verifica se o tipo da expressão atribuída é compatível com o tipo da variável
+        const varType = main.semantic.checkVariable(idToken[0]);
+        console.log(expr)
+        if ((varType === 'inteiro' || varType === 'decimal')) {
+            if (expr[0] == 'binop'){
+                console.log("aqui")
+                
+                if (expr[3][1] !== 'NUMERO'){
+                    console.log("teste")
+                    document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: ${expr[2][1]}`;
+                    throw new SyntaxError(`Valor inválido para tipo ${varType}: ${expr[2][1]}`);
+                }
+            }else{
+                if (expr[1] !== 'NUMERO') {
+                    console.log("caiu aqui")
+                    document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: "${expr[0]}"`;
+                    throw new SyntaxError(`Valor inválido para tipo ${varType}: ${expr[2][1]}`);
+                }
+            }
+        } else if (varType === 'linha' && expr[1] !== 'TEXTO') {
+            document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: ${expr[0]}`;
+            throw new SyntaxError(`Valor inválido para tipo ${varType}: ${expr[2][1]}`);
+        }
+
         this.consume('DELIMITADOR', ';');  // Consome o delimitador ';'
-        return ['atribuicao', idToken, ':=', expr];  // Retorna a estrutura da atribuição
+        return ['atribuicao', idToken, expr];  // Retorna a estrutura da atribuição
     }
 }

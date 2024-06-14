@@ -16,7 +16,7 @@ class main {
 
         // Exibe a representação do parser na interface do usuário
         document.querySelector(".output-parser").value = this.finalString
-        console.log(Intermediate.gerarCodIntermediario())
+        // console.log(Intermediate.gerarCodIntermediario())
 
         // Traduz a representação do parser para código intermediário e exibe na interface
         document.querySelector(".output-intermediate").value = Intermediate.gerarCodIntermediario()

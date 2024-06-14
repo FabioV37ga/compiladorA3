@@ -8,7 +8,7 @@ class Intermediate {
 
             // Função recursiva para percorrer a árvore de análise sintática e gerar código intermediário
             function traverse(node) {
-                console.log(node)
+                // console.log(node)
                 if (!node) return;
 
                 switch (node[0]) {
@@ -81,9 +81,18 @@ class Intermediate {
                     case 'atribuicao':
                         // Gera a instrução de atribuição no código intermediário
                         let varNameAssign = node[1][0];
+                        console.log(node)
                         var expression;
-                        if (node[3][0] == 'binop'){
+                        if (node[0] && node[0] == 'binop'){
                             expression = `${node[2]} ${node[3][2][0]} ${node[3][1][0]} ${node[3][3][0]}`;
+                            console.log("cuzinho")
+                        }else if(node[2][0] == 'binop'){
+                            expression = `${node[2][2]} ${node[2][1]} ${node[2][3]}`;
+                            console.log("outrumacaca")
+
+                        }else if(node[0] == 'atribuicao'){
+                            console.log("outrum2")
+                            expression = `:= ${node[2][0]}`
                         }else{
                             expression = `${node[2]} ${node[3][0]}`;
                         }
