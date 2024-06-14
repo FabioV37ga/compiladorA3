@@ -63,7 +63,10 @@ body {
     background: rgb(29, 35, 51);
     padding: 13px 15px;
     border-radius: 9px;
+}
 
+.btn-exec{
+    background: rgb(15, 108, 15) !important
 }
 
 textarea {

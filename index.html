@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compilador 0.3.4</title>
+    <title>Compilador 1.0.0</title>
     <link rel="stylesheet" href="corpo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,6 +16,9 @@
         <section class="conteudo">
             <section class="secao-topo">
                 <a href="#" class="btn-compilar"><i class="fa fa-play" aria-hidden="true"></i> Compilar</a>
+                <a href="#" class="btn-exec" style="margin-left:16px"><i class="fa fa-fast-forward"
+                        aria-hidden="true"></i></i>
+                    Executar</a>
             </section>
             <section class="secao-esquerda">
                 <div class="secao-header">
@@ -34,7 +37,7 @@ programa
 &#9;linha z;
 &#9;z := "Exemplo de declaração de linha";
 &#9;inteiro x, y, b;
-&#9;escreva("Hello world");
+&#9;escreva("Escreva um numero para ver seu dobro");
 &#9;leia(x);
 &#9;if (x > 0) {
 &#9;&#9;y := x * 2;
@@ -42,12 +45,15 @@ programa
 &#9;} else {
 &#9;&#9;escreva("O valor de x é negativo");
 &#9;}
-&#9;para(1,1,10){
-&#9;&#9;escreva("bonk!");
+&#9;para(1,1,3){
+&#9;&#9;escreva(z);
+&#9;&#9;escreva(x);
 &#9;}
-&#9;enquanto(x < 10){
-&#9;&#9;escreva("bouf!");
+&#9;x := 0;
+&#9;enquanto(x < 3){
+&#9;&#9;escreva(x);
 &#9;&#9;b := 3;
+&#9;&#9;x := x + 1;
 &#9;}"
 fimprog</textarea>
             </section>
@@ -57,6 +63,14 @@ fimprog</textarea>
                         <div class="tab">
                             <i class="fa fa-building-o" aria-hidden="true"></i>
                             Parser
+                        </div>
+                        <div class="tab">
+                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                            Linguagem intermediária
+                        </div>
+                        <div class="tab">
+                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                            Linguagem Final
                         </div>
                         <div class="copy">
                             <a href="#" class="btn-copy">
@@ -72,6 +86,7 @@ fimprog</textarea>
                             <i class="fa fa-desktop" aria-hidden="true"></i>
                             Linguagem intermediária
                         </div>
+
                         <div class="copy">
                             <a href="#" class="btn-copy">
                                 <i class="fa fa-clone" aria-hidden="true"></i>
@@ -94,6 +109,7 @@ fimprog</textarea>
     <script src="js/compilador/semantic.js"></script>
     <script src="js/compilador/lexer.js"></script>
     <script src="js/compilador/parser.js"></script>
+    <script src="js/compilador/codigoFinal.js"></script>
     <script src="js/compilador/main.js"></script>
 </body>
 

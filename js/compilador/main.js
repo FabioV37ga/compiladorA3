@@ -23,34 +23,38 @@ class main {
 
         main.intermediateString = Intermediate.gerarCodIntermediario()
         document.querySelector(".output-intermediate").value = main.intermediateString
-        
+
         // Intermediate.gerarCodIntermediario()
+
+        console.log()
+        // eval(Tradutor.traduzirFinal(main.intermediateString.toString()))
+
 
 
         function downloadTxtFile() {
             // Conteúdo do arquivo
             const texto = "Este é o conteúdo do arquivo que será baixado.";
-        
+
             // Cria um Blob com o texto
             const blob = new Blob([texto], { type: 'text/plain' });
-        
+
             // Cria um URL temporário
             const url = URL.createObjectURL(blob);
-        
+
             // Cria um elemento de link <a>
             const a = document.createElement('a');
             a.href = url;
             a.download = 'meuarquivo.txt'; // Nome do arquivo a ser baixado
-        
+
             // Adiciona o elemento de link ao documento
             document.body.appendChild(a);
-        
+
             // Simula um clique no elemento para iniciar o download
             a.click();
-        
+
             // Limpa o objeto URL criado
             URL.revokeObjectURL(url);
-        
+
             // Remove o elemento <a> do documento
             document.body.removeChild(a);
         }

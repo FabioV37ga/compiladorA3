@@ -277,15 +277,15 @@ class Parser {
         const varType = main.semantic.checkVariable(idToken[0]);
         console.log(expr)
         if ((varType === 'inteiro' || varType === 'decimal')) {
-            if (expr[0] == 'binop'){
+            if (expr[0] == 'binop') {
                 console.log("aqui")
-                
-                if (expr[3][1] !== 'NUMERO'){
+
+                if (expr[3][1] !== 'NUMERO') {
                     console.log("teste")
                     document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: ${expr[2][1]}`;
                     throw new SyntaxError(`Valor inválido para tipo ${varType}: ${expr[2][1]}`);
                 }
-            }else{
+            } else {
                 if (expr[1] !== 'NUMERO') {
                     console.log("caiu aqui")
                     document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: "${expr[0]}"`;
