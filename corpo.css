@@ -57,7 +57,7 @@ body {
     top: 0;
 }
 
-.secao-topo a{
+.secao-topo a {
     text-decoration: none;
     color: rgb(238, 245, 248);
     background: rgb(29, 35, 51);
@@ -65,7 +65,7 @@ body {
     border-radius: 9px;
 }
 
-.btn-exec{
+.btn-exec {
     background: rgb(15, 108, 15) !important
 }
 
@@ -91,7 +91,8 @@ textarea {
     height: 45px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    position: relative;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -114,12 +115,27 @@ textarea {
     margin-right: 10px;
 }
 
-.secao-direita textarea{
+.tab {
+    cursor: pointer;
+}
+
+.tab:hover,
+.-off:hover {
+    background: rgb(32, 39, 56) !important;
+}
+
+.tab.-off {
+    background: rgb(24, 30, 46);
+    /* padding: 0 !important; */
+    height: 45px;
+}
+
+.secao-direita textarea {
     margin-bottom: 4px;
     height: 256px;
 }
 
-.secao-direita{
+.secao-direita {
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
@@ -127,16 +143,23 @@ textarea {
     flex-direction: column;
 }
 
-.copy{
-    display:flex;
+.secao-direita>* {
+    position: relative
+}
+
+.copy {
+    position: absolute;
+    right: 0px;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
     height: 100%;
     width: 50px;
-    
+
 }
-.copy a{
+
+.copy a {
     padding: 10px;
     border-radius: 100%;
     text-decoration: none;

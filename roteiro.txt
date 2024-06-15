@@ -1,0 +1,48 @@
+- Fábio
+
+JSbridge - Compilador
+Bem vindo ao vídeo de apresentação do JSbridge
+JSbridge é um compilador, portanto consiste de uma linguagem de programação, mecanismos de verificação de sua sintaxe e alguns sistemas de tradução.
+Em resumo, Funciona da seguinte forma:
+
+1. O usuário digita um algoritmo válido e clica em compilar
+1.1 >>>>>>Demonstre um algoritmo inválido<<<<<
+
+2. O input do usuário é destrinchado através de diversas funções do sistema, são elas:
+	Separação de tokens
+	classe Semântica
+	classe Parse
+	tradução para código intermediário
+	tradução para código final (no caso, js)
+
+3. Durante a execução, os valores são escritos nas abas da região direita da interface, que podem 
+ser facilmente copiados utilizando o botão de copiar
+
+4. Por fim, o usuário pode executar o programa, isso utilizará o código final em js(que é uma tradução do código intermediário, que por sua vez é uma tradução da cadeia de tokens)
+
+5. Breve explicação sobre a tradução para js
+
+
+
+-------------------------------------------------
+
+explicação sobre linguagem
+
+- Gustavo
+
+1. explique que o programa precisa iniciar com "programa" e terminar com "fimprog"
+2. tem três tipos de variaveis: linha, inteiro e decimal.
+3. para declarar variaveis o compilador deve reconhecer "ID := (dois pontos igual - operador de atribuição) VALOR"
+	3.1 explique que no ato de atribuir valor a uma variavel o compilador verifica se o tipo da entrada é compativel
+
+- Ota
+4. o comando escreva emite uma mensagem num pop-up
+5. o comando leia abre um pop-up que aceita inputs do usuário
+6. explique o if else da linguagem (if precisa do else, não funciona sem)
+7. tem dois tipos de laço (loop) para - equivalente a um for e enquanto, equivalente a um while
+	7.1 o for funciona com 3 argumentos: [valor inicial, valor final, valor somado]
+	7.2 o while funciona através da verificação de uma expressão
+
+
+
+
