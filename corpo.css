@@ -103,12 +103,12 @@ textarea {
     width: fit-content;
     /* margin-bottom: -5px; */
     height: 50px;
-    padding: 0px 25px;
+    padding: 0px 17px;
     background: rgb(29, 35, 51);
     justify-content: space-around;
     align-items: center;
     z-index: 10;
-    font-size: 13px
+    font-size: 15px
 }
 
 .tab i {
@@ -133,6 +133,7 @@ textarea {
 .secao-direita textarea {
     margin-bottom: 4px;
     height: 256px;
+    /* height: 620px; */
 }
 
 .secao-direita {
@@ -164,4 +165,12 @@ textarea {
     border-radius: 100%;
     text-decoration: none;
     color: rgb(238, 245, 248)
+}
+
+.fa {
+    font-size: 20px !important;
+}
+
+.hidden{
+    display: none;
 }

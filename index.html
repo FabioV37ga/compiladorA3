@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compilador 1.0.1</title>
+    <title>Compilador 1.1.0</title>
     <link rel="stylesheet" href="corpo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -60,16 +60,16 @@ fimprog</textarea>
             <section class="secao-direita">
                 <section class="output_a">
                     <div class="secao-header">
-                        <div class="tab">
-                            <i class="fa fa-building-o" aria-hidden="true"></i>
+                        <div id = "0" class="tab">
+                            <i class="fa fa-list" aria-hidden="true"></i>
                             Parser
                         </div>
-                        <div class="tab -off">
-                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                        <div id = "1" class="tab -off">
+                            <i class="fa fa-list-alt" aria-hidden="true"></i>
                             Linguagem intermediária
                         </div>
-                        <div class="tab -off">
-                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                        <div id = "2" class="tab -off">
+                            <i class="fa fa-file-text" aria-hidden="true"></i>
                             Linguagem Final
                         </div>
                         <div class="copy">
@@ -78,13 +78,15 @@ fimprog</textarea>
                             </a>
                         </div>
                     </div>
-                    <textarea readonly spellcheck="false" class="textBox-output output-parser"></textarea>
+                    <textarea readonly spellcheck="false" class="textBox-output output-parser">a</textarea>
+                    <textarea readonly spellcheck="false" class="textBox-output output-intermediate hidden">b</textarea>
+                    <textarea readonly spellcheck="false" class="textBox-output output-final hidden">c</textarea>
                 </section>
                 <section class="output_b">
                     <div class="secao-header">
                         <div class="tab">
                             <i class="fa fa-desktop" aria-hidden="true"></i>
-                            Linguagem intermediária
+                            Saída
                         </div>
 
                         <div class="copy">
@@ -93,7 +95,7 @@ fimprog</textarea>
                             </a>
                         </div>
                     </div>
-                    <textarea readonly spellcheck="false" class="textBox-output output-intermediate"></textarea>
+                    <textarea readonly spellcheck="false" class="textBox-output output-console"></textarea>
                 </section>
             </section>
         </section>
@@ -102,7 +104,6 @@ fimprog</textarea>
     <!-- Scripts front-end -->
     <script src="js/bower_components/taboverride/build/output/taboverride.js"></script>
     <script src="js/frontend/editor.js"></script>
-    ../
     <!-- Scripts do compilador -->
     <script src="js/compilador/intermediate.js"></script>
     <script src="js/compilador/linguagem.js"></script>
