@@ -1,0 +1,64 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{hyperref}
+
+\title{Documentação do projeto JSBridge}
+\author{Fabio V. \and Nome Autor2 \and Nome Autor3}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Este documento descreve o projeto final de Teoria da Computação e Compiladores, incluindo detalhes sobre suas funcionalidades, uso e arquitetura do projeto.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Introdução}
+
+JsBridge implementa um compilador que transforma código escrito em uma linguagem de entrada específica em linguagem de saída, apresentando diferentes níveis de análise. O compilador inclui funcionalidades como análise sintática, geração de linguagem intermediária e conversão para a linguagem final. A interface web permite visualizar e copiar o código em diferentes estágios do processo de compilação.
+
+\section{Objetivos}
+
+Desenvolver um compilador em ambiente web, que permite transformar código escrito em uma linguagem de entrada específica para uma linguagem de saída final. O projeto visa aplicar conceitos de Teoria da Computação e Compiladores, proporcionando uma ferramenta educacional que facilita a compreensão do processo de compilação. A interface web interativa exibe o código em diferentes estágios, desde a análise sintática até a geração da linguagem final, aprimorando a experiência de aprendizado dos usuários.
+
+\section{Funcionalidades Principais}
+
+JSBridge possui várias funcionalidades chave que facilitam o aprendizado e a experimentação:
+
+\begin{itemize}
+\item \textbf{Análise Léxica}: Esta etapa identifica e categoriza os tokens presentes no código fonte, transformando a sequência de caracteres em unidades léxicas significativas.
+\item \textbf{Análise Sintática}: Utilizando gramáticas formais, esta fase verifica a estrutura do código fonte para garantir que ele esteja sintaticamente correto.
+\item \textbf{Análise Semântica}: Verifica a correção semântica do código fonte, assegurando que as instruções façam sentido lógico dentro do contexto do programa.
+\item \textbf{Geração de Código}: Traduz os tokens para linguagem intermediária e então para linguagem final (no caso, javaScript).
+\item \textbf{Ambiente de Teste}: Inclui ferramentas e exemplos que permitem aos usuários testar e validar suas implementações, promovendo um entendimento prático dos conceitos teóricos.
+\end{itemize}
+
+\section{Usabilidade}
+
+JSBridge foi projetado com foco na usabilidade, proporcionando uma interface web intuitiva para facilitar o processo de compilação. Os usuários podem inserir o código fonte e visualizar as etapas de análise léxica, sintática e semântica, bem como a geração de código intermediário e final. A interface interativa permite a alternância entre essas fases, oferecendo uma visualização clara e organizada do fluxo de compilação, o que torna o aprendizado e a utilização mais acessíveis e eficazes para estudantes e desenvolvedores.
+
+\section{Arquitetura do Projeto}
+
+A arquitetura do projeto \textit{JSBridge} é modular e bem organizada, facilitando a manutenção e a extensão do código. A seguir, uma visão geral dos principais componentes:
+
+\begin{itemize}
+\item \textbf{Interface}: O arquivo \texttt{editor.js} É responsável por atribuir funções aos elementos visuais do sistema, em adição, a api \texttt{taboverride} foi utilizada para implementar um ambiente de texto parecido com uma IDE.
+\item \textbf{Inicialização e Gestão}: O arquivo \texttt{main.js} Inicializa o sistema, responsável por obter o input do usuário e chamar os métodos das outras classes.
+\item \textbf{Linguagem}: O arquivo \texttt{linguagem.js} armazena informações e expressões aceitas pela linguagem.
+\item \textbf{Análise léxica}: O arquivo \texttt{lexer.js} executa a análise léxica do código e retorna, se válido, uma árvore com os tokens. 
+\item \textbf{Análise Semântica}: O arquivo \texttt{semantic.js} realiza a análise semântica, verificando a coerência lógica do código.
+\item \textbf{Centralização das Análises}: O arquivo \texttt{parser.js} centraliza a lógica de análise léxica, sintática e semântica, verificando tokens e estruturas do código fonte.
+\item \textbf{Geração de Código intermediário}: O arquivo \texttt{intermediate.js} gera o código intermediário utilizando algoritmos de substituição de termos da cadeia de tokens gerada pelo código do usuário.
+\item \textbf{Geração de Código final}: O arquivo \texttt{codigoFinal.js} gera o código final utilizando algoritmos de substituição de termos do código intermediário.
+\end{itemize}
+
+\section{Conclusão}
+
+\textit{JSBridge} é uma excelente ferramenta educacional que oferece uma visão aprofundada do processo de compilação. Com suas funcionalidades abrangentes, foco no aprendizado prático e uma arquitetura bem organizada.
+
+\end{document}
