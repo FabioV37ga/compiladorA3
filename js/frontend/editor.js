@@ -4,8 +4,26 @@ $(".btn-compilar")[0].addEventListener("click", () => {
 })
 
 $(".btn-exec")[0].addEventListener("click", () => {
+    var output;
     if (main.finalString)
-        eval(`${main.finalString}`)
+        output = executeCodeAndCaptureOutput(main.finalString)
+        // eval(`${main.finalString}`)
+        // Função simulando a execução de código e capturando a saída
+        function executeCodeAndCaptureOutput(code) {
+            let output = "";
+            let originalLog = alert;
+            alert = function (message) {
+                output += message + "\n";
+            }
+
+            // Execute seu código aqui
+            eval(code);
+
+            alert = originalLog; // Restaurando console.log para o original, se necessário
+
+            return output; // Retorne a saída capturada
+        }
+        $('.output-console')[0].value = output
 })
 
 

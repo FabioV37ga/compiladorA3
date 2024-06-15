@@ -38,7 +38,7 @@ class Tradutor {
                 finalCode.push(`${varName} = ${expr};`);
             } else if (line.startsWith("ESCREVA")) {
                 let args = line.substring("ESCREVA ".length).replaceAll('",', '"+').replaceAll(', "', '+ "').replaceAll(',"', '+ "');
-                console.log(args)
+                // console.log(args)
                 finalCode.push(`alert(${args});`);
             } else if (line.startsWith("LEIA")) {
                 let varName = line.split(' ')[1];
