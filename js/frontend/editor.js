@@ -14,6 +14,9 @@ $(".btn-exec")[0].addEventListener("click", () => {
             let originalLog = alert;
             alert = function (message) {
                 output += message + "\n";
+                console.clear()
+                // Tradutor.gritar(output);
+                console.log(output)
             }
 
             // Execute seu código aqui
@@ -47,4 +50,4 @@ for (let i = 0; i <= tabs.length - 2; i++) {
     })
 }
 
-console.log(outputTextArea)
+// console.log(outputTextArea)

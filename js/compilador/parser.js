@@ -215,7 +215,7 @@ class Parser {
     // Regra para um termo na expressão matemática ou lógica
     termo() {
         const token = this.currentToken();
-        console.log(token)
+        // console.log(token)
         if (token[1] === 'ID') {
             return this.consume('ID');  // Se for um identificador, consome e retorna
         } else if (token[1] === 'NUMERO') {
@@ -275,19 +275,19 @@ class Parser {
 
         // Verifica se o tipo da expressão atribuída é compatível com o tipo da variável
         const varType = main.semantic.checkVariable(idToken[0]);
-        console.log(expr)
+        // console.log(expr)
         if ((varType === 'inteiro' || varType === 'decimal')) {
             if (expr[0] == 'binop') {
-                console.log("aqui")
+                // console.log("aqui")
 
                 if (expr[3][1] !== 'NUMERO') {
-                    console.log("teste")
+                    // console.log("teste")
                     document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: ${expr[2][1]}`;
                     throw new SyntaxError(`Valor inválido para tipo ${varType}: ${expr[2][1]}`);
                 }
             } else {
                 if (expr[1] !== 'NUMERO') {
-                    console.log("caiu aqui")
+                    // console.log("caiu aqui")
                     document.querySelector(".textBox-output").value = `Valor inválido para tipo ${varType}: "${expr[0]}"`;
                     throw new SyntaxError(`Valor inválido para tipo ${varType}: ${expr[2][1]}`);
                 }
